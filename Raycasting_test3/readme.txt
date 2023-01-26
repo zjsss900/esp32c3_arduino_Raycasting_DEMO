@@ -1,2 +1,2 @@
-
+依赖TFT_eSPI库。
 TFT_eSPI.rar为配置好合宙160*80TFT模块参数的TFT_eSPI库文件，直接解压到Raycasting_test3项目文件夹中。
