@@ -9,13 +9,6 @@
 #define LCD_BUTTON_CENTER     4
 #define LCD_BUTTON_DOWN       9
 
-#define blockup                1        // 按钮返回值定义
-#define blockdown              2        //
-#define blocklift              4        //
-#define blockright             3        //
-#define blockc                 5        //
-
-
 #define screenWidth 160
 #define screenHeight 80
 #define mapWidth 24
