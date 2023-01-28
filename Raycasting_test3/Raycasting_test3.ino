@@ -57,7 +57,7 @@ TFT_eSPI tft=TFT_eSPI(80,160);
 double posX=22,posY=12;
 double dirX=-1,dirY=0;
 double planeX=0,planeY=1;
-long nowFrame=0,oldFrame=0;
+long nowFrame=0,oldFrame=0,t1=0;
 uint16_t Frame_image[screenWidth][screenHeight],ddd[screenWidth*screenHeight];
 double fps;
 
@@ -82,6 +82,16 @@ void wddd(){
       ddd[n]=Frame_image[x][y];
       n++;
     }
+  }
+}
+
+void pirnt_fps(){  //将帧率输出到串口 目前大概是20~27FPS
+  if(millis()+t1>=1000){
+    t1=millis();
+    Serial.print("fps: ");
+    Serial.println(fps);
+    Serial.println("");
+    Serial.println("");
   }
 }
 
@@ -251,6 +261,7 @@ void reycasting(){
 
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(15200);
   tft.init(); 
   tft.setRotation(0);
   tft.setSwapBytes(true);
@@ -263,4 +274,5 @@ void loop() {
   reycasting();
   wddd();
   tft.pushImage(0,0,80,160,ddd);
+  pirnt_fps();
 }
