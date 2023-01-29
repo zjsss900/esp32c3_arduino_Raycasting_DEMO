@@ -85,7 +85,7 @@ void wddd(){
   }
 }
 
-void print_fps(){  //将帧率输出到串口 目前大概是20~27FPS
+void print_fps(){  //每隔1秒将帧率输出到串口 目前大概是20~27FPS 建议在需要查看FPS时再启用。
   if(millis()+t1>=1000){
     t1=millis();
     Serial.print("fps: ");
@@ -274,5 +274,5 @@ void loop() {
   reycasting();
   wddd();
   tft.pushImage(0,0,80,160,ddd);
-  print_fps();
+  //print_fps();   //每隔1秒将帧率输出到串口 目前大概是20~27FPS 建议在需要查看FPS时再启用。
 }
